@@ -58,7 +58,16 @@ const App = function () {
   };
 
   const resize = function () {
-    //
+    ww = window.innerWidth;
+    wh = window.innerHeight;
+
+    camera.aspect = ww / wh;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(ww, wh);
+    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+
+    renderRequest();
   };
 
   // Setting -------------------
